@@ -1,9 +1,7 @@
-/********************************************************
-* *
-* Copyright (C) Microsoft. All rights reserved. *
-* *
-********************************************************/
-
+/**
+ * Part of a source code package originally written for the Navic AdExchange project.
+ * Intended for use as a programming work sample file only.  Not for distribution.
+ **/
 package AdExchange.Core;
 
 import java.io.Serializable;
