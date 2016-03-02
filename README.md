@@ -7,3 +7,7 @@ The ```Auctioneer``` class originated as a (huge and unwieldy) database stored p
 
 ## Money
 One class I wrote was the ```Money``` class to fill the lack (at the time) of Java support for financial amounts.  Floating point numbers are notoriously inaccurate at representing money, so I designed a class.  Since then, a (much more complex) JSR has been through the review process to provide such support.
+
+## MasterGrid
+The ```MasterGrid``` class aggregates auction information about available spots for a single campaign buy across all ___dayparts___ for a date range over a generic 24-hour network broadcast for a list of network channels.
+ This class is intended to act as the Model for an MVC web interface View, where the grid is a table of channel rows and daypart columns.
