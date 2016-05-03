@@ -1,8 +1,8 @@
 /**
- * Part of a source code package originally written for the Navic AdExchange project.
+ * Part of a source code package originally written for the AdAuctionApp project.
  * Intended for use as a programming work sample file only.  Not for distribution.
  **/
-package AdExchange.Core;
+package AdAuctionApp.Core;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

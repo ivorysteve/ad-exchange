@@ -1,8 +1,8 @@
 /**
- * Part of a source code package originally written for the Navic AdExchange project.
+ * Part of a source code package originally written for the AdAuctionApp project.
  * Intended for use as a programming work sample file only.  Not for distribution.
  **/
-package AdExchange.Auction;
+package AdAuctionApp.Auction;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -24,31 +24,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.log4j.Logger;
 
 import util.TimeUtils;
-import AdExchange.AdBuyGrid.AuctionClient;
-import AdExchange.AdBuyGrid.GridAuctionObject;
-import AdExchange.AdBuyGrid.SpotShadow;
-import AdExchange.AdBuyGrid.Auction.AuctionViewToggles;
-import AdExchange.AdvertisingAccount.AdvertisingAccountConstants.MediaBuyType;
-import AdExchange.Auction.AuctionConstants.PricingType;
-import AdExchange.Auction.AuctionConstants.WinType;
-import AdExchange.Auction.Central.SystemAuctionClient;
-import AdExchange.Auction.SOAPMessage.BidSnapshot;
-import AdExchange.Cache.Central.AuctionObject;
-import AdExchange.Cache.Central.BreakView;
-import AdExchange.Cache.Central.ChannelBundlingInfo;
-import AdExchange.Cache.Central.CampaignBuyAuctionInfo;
-import AdExchange.Cache.Central.DemographicCache;
-import AdExchange.Cache.Central.GridUtils;
-import AdExchange.Cache.Central.InventoryTracker;
-import AdExchange.Cache.Central.PreassignedWinner;
-import AdExchange.Cache.Central.PreassignedWinner.AssignStatus;
-import AdExchange.Cache.Central.Spot;
-import AdExchange.Core.AdExchangeConstants;
-import AdExchange.Core.AuctionTally;
-import AdExchange.Core.DateRange;
-import AdExchange.Core.DayOfWeek;
-import AdExchange.Core.Money;
-import AdExchange.Core.SystemAlert;
+import AdAuctionApp.AdBuyGrid.AuctionClient;
+import AdAuctionApp.AdBuyGrid.GridAuctionObject;
+import AdAuctionApp.AdBuyGrid.SpotShadow;
+import AdAuctionApp.AdBuyGrid.Auction.AuctionViewToggles;
+import AdAuctionApp.AdvertisingAccount.AdvertisingAccountConstants.MediaBuyType;
+import AdAuctionApp.Auction.AuctionConstants.PricingType;
+import AdAuctionApp.Auction.AuctionConstants.WinType;
+import AdAuctionApp.Auction.Central.SystemAuctionClient;
+import AdAuctionApp.Auction.SOAPMessage.BidSnapshot;
+import AdAuctionApp.Cache.Central.AuctionObject;
+import AdAuctionApp.Cache.Central.BreakView;
+import AdAuctionApp.Cache.Central.ChannelBundlingInfo;
+import AdAuctionApp.Cache.Central.CampaignBuyAuctionInfo;
+import AdAuctionApp.Cache.Central.DemographicCache;
+import AdAuctionApp.Cache.Central.GridUtils;
+import AdAuctionApp.Cache.Central.InventoryTracker;
+import AdAuctionApp.Cache.Central.PreassignedWinner;
+import AdAuctionApp.Cache.Central.PreassignedWinner.AssignStatus;
+import AdAuctionApp.Cache.Central.Spot;
+import AdAuctionApp.Core.AdAuctionAppConstants;
+import AdAuctionApp.Core.AuctionTally;
+import AdAuctionApp.Core.DateRange;
+import AdAuctionApp.Core.DayOfWeek;
+import AdAuctionApp.Core.Money;
+import AdAuctionApp.Core.SystemAlert;
 
 /**
  * This class contains auction data for a grid and implements the auctioning
@@ -2095,7 +2095,7 @@ public class Auctioneer implements AuctionResults
       int crId = cb.nextCreativeRotationWinner(crIds);
       bid.setSelectedCreativeId(crId);
 
-      if (crId == AdExchangeConstants.UNKNOWN_ID_VALUE)
+      if (crId == AdAuctionAppConstants.UNKNOWN_ID_VALUE)
       {
          // We didn't find a creative.
          bid.auctionState = as;

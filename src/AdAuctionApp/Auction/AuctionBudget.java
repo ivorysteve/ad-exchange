@@ -1,8 +1,8 @@
 /**
- * Part of a source code package originally written for the Navic AdExchange project.
+ * Part of a source code package originally written for the AdAuctionApp project.
  * Intended for use as a programming work sample file only.  Not for distribution.
  **/
-package AdExchange.Auction;
+package AdAuctionApp.Auction;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -14,25 +14,25 @@ import java.util.TreeMap;
 
 import util.TimeUtils;
 
-import AdExchange.AdBuyGrid.Auction.AuctionViewToggles;
-import AdExchange.AdvertisingAccount.AdvertisingAccountConstants.MediaBuyType;
-import AdExchange.Auction.CampaignBuyAuctionTally.SpotProximityData;
-import AdExchange.Cache.CacheConstants.DemographicQualityType;
-import AdExchange.Cache.Central.AuctionAdjacencyRules;
-import AdExchange.Cache.Central.AuctionObject;
-import AdExchange.Cache.Central.BreakView;
-import AdExchange.Cache.Central.BudgetLimiter;
-import AdExchange.Cache.Central.CampaignBuyAuctionInfo;
-import AdExchange.Cache.Central.ChannelBundlingInfo;
-import AdExchange.Cache.Central.GridUtils;
-import AdExchange.Cache.Central.PlacementAttribute;
-import AdExchange.Cache.Central.Spot;
+import AdAuctionApp.AdBuyGrid.Auction.AuctionViewToggles;
+import AdAuctionApp.AdvertisingAccount.AdvertisingAccountConstants.MediaBuyType;
+import AdAuctionApp.Auction.CampaignBuyAuctionTally.SpotProximityData;
+import AdAuctionApp.Cache.CacheConstants.DemographicQualityType;
+import AdAuctionApp.Cache.Central.AuctionAdjacencyRules;
+import AdAuctionApp.Cache.Central.AuctionObject;
+import AdAuctionApp.Cache.Central.BreakView;
+import AdAuctionApp.Cache.Central.BudgetLimiter;
+import AdAuctionApp.Cache.Central.CampaignBuyAuctionInfo;
+import AdAuctionApp.Cache.Central.ChannelBundlingInfo;
+import AdAuctionApp.Cache.Central.GridUtils;
+import AdAuctionApp.Cache.Central.PlacementAttribute;
+import AdAuctionApp.Cache.Central.Spot;
 
-import AdExchange.Core.AuctionTally;
-import AdExchange.Core.AuctionTallyMap;
-import AdExchange.Core.DayOfWeek;
-import AdExchange.Core.Money;
-import AdExchange.Creative.CreativeRotation;
+import AdAuctionApp.Core.AuctionTally;
+import AdAuctionApp.Core.AuctionTallyMap;
+import AdAuctionApp.Core.DayOfWeek;
+import AdAuctionApp.Core.Money;
+import AdAuctionApp.Creative.CreativeRotation;
 
 /**
  * Mutable container class representing all budget accounting constraints used

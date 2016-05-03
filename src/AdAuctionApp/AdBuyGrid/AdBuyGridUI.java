@@ -1,12 +1,12 @@
 /**
- * Part of a source code package originally written for the Navic AdExchange project.
+ * Part of a source code package originally written for the adverting auction project.
  * Intended for use as a programming work sample file only.  Not for distribution.
  **/
-package AdExchange.AdBuyGrid;
+package AdAuctionApp.AdBuyGrid;
 
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.AUCTION_WIN;
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.IN_AUDIENCE;
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.IN_PROGRAM;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.AUCTION_WIN;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.IN_AUDIENCE;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.IN_PROGRAM;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -66,25 +66,25 @@ import javax.swing.table.TableModel;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import AdExchange.AdBuyGrid.AdBuySoup.CableChannel;
-import AdExchange.AdBuyGrid.AdBuySoup.DaypartCell;
-import AdExchange.AdBuyGrid.AdConstraintSet.ImpressionType;
-import AdExchange.AdBuyGrid.Auction.AuctionViewToggles;
-import AdExchange.AdvertisingTarget.CampaignBuy;
-import AdExchange.AdvertisingTarget.Compiled.CriteriaCheckerIFace;
-import AdExchange.Auction.AuctionPass;
-import AdExchange.Auction.AuctionSettings;
-import AdExchange.Auction.AuctionUtils;
-import AdExchange.Cache.IndexedAttributeObject;
-import AdExchange.Cache.Central.BreakView;
-import AdExchange.Cache.Central.GridUtils;
-import AdExchange.Cache.Central.ProgramView;
-import AdExchange.Core.DayOfWeek;
-import AdExchange.Core.Money;
-import AdExchange.Server.SystemParameter;
-import AdExchange.Util.Json.JSONArray;
-import AdExchange.Util.Json.JSONException;
-import AdExchange.Util.Json.JSONObject;
+import AdAuctionApp.AdBuyGrid.AdBuySoup.CableChannel;
+import AdAuctionApp.AdBuyGrid.AdBuySoup.DaypartCell;
+import AdAuctionApp.AdBuyGrid.AdConstraintSet.ImpressionType;
+import AdAuctionApp.AdBuyGrid.Auction.AuctionViewToggles;
+import AdAuctionApp.AdvertisingTarget.CampaignBuy;
+import AdAuctionApp.AdvertisingTarget.Compiled.CriteriaCheckerIFace;
+import AdAuctionApp.Auction.AuctionPass;
+import AdAuctionApp.Auction.AuctionSettings;
+import AdAuctionApp.Auction.AuctionUtils;
+import AdAuctionApp.Cache.IndexedAttributeObject;
+import AdAuctionApp.Cache.Central.BreakView;
+import AdAuctionApp.Cache.Central.GridUtils;
+import AdAuctionApp.Cache.Central.ProgramView;
+import AdAuctionApp.Core.DayOfWeek;
+import AdAuctionApp.Core.Money;
+import AdAuctionApp.Server.SystemParameter;
+import AdAuctionApp.Util.Json.JSONArray;
+import AdAuctionApp.Util.Json.JSONException;
+import AdAuctionApp.Util.Json.JSONObject;
 
 /**
  * Swing view widget for SpeedOfLight AdBuyGrid.

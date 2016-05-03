@@ -1,15 +1,15 @@
 /**
- * Part of a source code package originally written for the Navic AdExchange project.
+ * Part of a source code package originally written for the AdAuctionApp project.
  * Intended for use as a programming work sample file only.  Not for distribution.
  **/
-package AdExchange.AdBuyGrid;
+package AdAuctionApp.AdBuyGrid;
 
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.AUCTION_WIN;
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.IN_AUDIENCE;
-import static AdExchange.AdBuyGrid.AdConstraintSet.Constraint.IN_PROGRAM;
-import static AdExchange.AdvertisingTarget.Central.CampBuyCalculateProgramsDTC.PROGRAM_CALCULATE_MSG;
-import static AdExchange.AdvertisingTarget.Central.CampBuyEstimateReachDTC.ESTIMATE_REACH_MSG;
-import static AdExchange.Auction.AuctionConstants.AUCTIONING_MSG;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.AUCTION_WIN;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.IN_AUDIENCE;
+import static AdAuctionApp.AdBuyGrid.AdConstraintSet.Constraint.IN_PROGRAM;
+import static AdAuctionApp.AdvertisingTarget.Central.CampBuyCalculateProgramsDTC.PROGRAM_CALCULATE_MSG;
+import static AdAuctionApp.AdvertisingTarget.Central.CampBuyEstimateReachDTC.ESTIMATE_REACH_MSG;
+import static AdAuctionApp.Auction.AuctionConstants.AUCTIONING_MSG;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -35,68 +35,68 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.log4j.Logger;
 
-import AdExchange.AdBuyGrid.AdBuySoup.CableChannel;
-import AdExchange.AdBuyGrid.AdBuySoup.DaypartCell;
-import AdExchange.AdBuyGrid.AdConstraintSet.ImpressionType;
-import AdExchange.AdBuyGrid.Auction.AuctionViewToggles;
-import AdExchange.AdvertisingTarget.CampaignBuy;
-import AdExchange.AdvertisingTarget.TargetArea;
-import AdExchange.AdvertisingTarget.TargetAreaGeography;
-import AdExchange.AdvertisingTarget.Central.CampBuyCalculateProgramsDTC;
-import AdExchange.AdvertisingTarget.Central.CampBuyEstimateReachDTC;
-import AdExchange.AdvertisingTarget.Central.CampBuyMultiOperationDTC;
-import AdExchange.AdvertisingTarget.Central.CampBuyOperationDTC;
-import AdExchange.AdvertisingTarget.Central.CampaignBuyOperationNotificationIFace;
-import AdExchange.AdvertisingTarget.Central.CentralAdvertisingTargetManager;
-import AdExchange.AdvertisingTarget.Compiled.CriteriaCheckerIFace;
-import AdExchange.Logical.DemographicCalculator;
-import AdExchange.Attributes.AttributeConstants.AttributeCategoryType;
-import AdExchange.Attributes.AttributeConstants.AttributeDataType;
-import AdExchange.Auction.AuctionHtmlUtils;
-import AdExchange.Auction.AuctionObjectShadow;
-import AdExchange.Auction.Auctioneer;
-import AdExchange.Auction.CampaignBuyAuctionTally;
-import AdExchange.Auction.Auctioneer.AuctionType;
-import AdExchange.Auction.Central.AuctionOperationDTC;
-import AdExchange.Auction.Central.AuctionOperationNotificationIFace;
-import AdExchange.Auction.Central.CentralAuctionManager;
-import AdExchange.Cache.IndexedAttributeObject;
-import AdExchange.Cache.CacheConstants.CacheType;
-import AdExchange.Cache.Central.BreakView;
-import AdExchange.Cache.Central.CachedProgram;
-import AdExchange.Cache.Central.CampaignBuyAuctionInfo;
-import AdExchange.Cache.Central.CentralCacheManager;
-import AdExchange.Cache.Central.ChannelDaypartView;
-import AdExchange.Cache.Central.ChannelSchedule;
-import AdExchange.Cache.Central.CriteriaCheckerCache;
-import AdExchange.Cache.Central.DaypartSet;
-import AdExchange.Cache.Central.GridUtils;
-import AdExchange.Cache.Central.MarketplaceDisplay;
-import AdExchange.Cache.Central.OrgZoneChannelHour;
-import AdExchange.Cache.Central.PlacementAttribute;
-import AdExchange.Cache.Central.ProgramView;
-import AdExchange.Cache.Central.DemographicCache;
-import AdExchange.Cache.Central.Spot;
-import AdExchange.Cache.Central.SpotScheduleCache;
-import AdExchange.Core.AdExchangeException;
-import AdExchange.Core.AuctionTally;
-import AdExchange.Core.DateRange;
-import AdExchange.Core.DayOfWeek;
-import AdExchange.Core.Money;
-import AdExchange.Creative.MarketplaceSpotVideo;
-import AdExchange.Creative.MarketplaceSpotVideoCrit;
-import AdExchange.Creative.SpotVideo;
-import AdExchange.Creative.SpotVideoCrit;
-import AdExchange.Organization.Geography;
-import AdExchange.Organization.Marketplace;
-import AdExchange.Organization.NationalChannel;
-import AdExchange.Organization.Organization;
-import AdExchange.Organization.Site;
-import AdExchange.Organization.Central.CentralOrgManager;
-import AdExchange.Organization.Organization.OType;
-import AdExchange.Server.CentralAdExchangeServer;
-import AdExchange.Task.DistributedRequestCompleteCallbackIFace;
-import AdExchange.Task.DistributedTaskCoordinator;
+import AdAuctionApp.AdBuyGrid.AdBuySoup.CableChannel;
+import AdAuctionApp.AdBuyGrid.AdBuySoup.DaypartCell;
+import AdAuctionApp.AdBuyGrid.AdConstraintSet.ImpressionType;
+import AdAuctionApp.AdBuyGrid.Auction.AuctionViewToggles;
+import AdAuctionApp.AdvertisingTarget.CampaignBuy;
+import AdAuctionApp.AdvertisingTarget.TargetArea;
+import AdAuctionApp.AdvertisingTarget.TargetAreaGeography;
+import AdAuctionApp.AdvertisingTarget.Central.CampBuyCalculateProgramsDTC;
+import AdAuctionApp.AdvertisingTarget.Central.CampBuyEstimateReachDTC;
+import AdAuctionApp.AdvertisingTarget.Central.CampBuyMultiOperationDTC;
+import AdAuctionApp.AdvertisingTarget.Central.CampBuyOperationDTC;
+import AdAuctionApp.AdvertisingTarget.Central.CampaignBuyOperationNotificationIFace;
+import AdAuctionApp.AdvertisingTarget.Central.CentralAdvertisingTargetManager;
+import AdAuctionApp.AdvertisingTarget.Compiled.CriteriaCheckerIFace;
+import AdAuctionApp.Logical.DemographicCalculator;
+import AdAuctionApp.Attributes.AttributeConstants.AttributeCategoryType;
+import AdAuctionApp.Attributes.AttributeConstants.AttributeDataType;
+import AdAuctionApp.Auction.AuctionHtmlUtils;
+import AdAuctionApp.Auction.AuctionObjectShadow;
+import AdAuctionApp.Auction.Auctioneer;
+import AdAuctionApp.Auction.CampaignBuyAuctionTally;
+import AdAuctionApp.Auction.Auctioneer.AuctionType;
+import AdAuctionApp.Auction.Central.AuctionOperationDTC;
+import AdAuctionApp.Auction.Central.AuctionOperationNotificationIFace;
+import AdAuctionApp.Auction.Central.CentralAuctionManager;
+import AdAuctionApp.Cache.IndexedAttributeObject;
+import AdAuctionApp.Cache.CacheConstants.CacheType;
+import AdAuctionApp.Cache.Central.BreakView;
+import AdAuctionApp.Cache.Central.CachedProgram;
+import AdAuctionApp.Cache.Central.CampaignBuyAuctionInfo;
+import AdAuctionApp.Cache.Central.CentralCacheManager;
+import AdAuctionApp.Cache.Central.ChannelDaypartView;
+import AdAuctionApp.Cache.Central.ChannelSchedule;
+import AdAuctionApp.Cache.Central.CriteriaCheckerCache;
+import AdAuctionApp.Cache.Central.DaypartSet;
+import AdAuctionApp.Cache.Central.GridUtils;
+import AdAuctionApp.Cache.Central.MarketplaceDisplay;
+import AdAuctionApp.Cache.Central.OrgZoneChannelHour;
+import AdAuctionApp.Cache.Central.PlacementAttribute;
+import AdAuctionApp.Cache.Central.ProgramView;
+import AdAuctionApp.Cache.Central.DemographicCache;
+import AdAuctionApp.Cache.Central.Spot;
+import AdAuctionApp.Cache.Central.SpotScheduleCache;
+import AdAuctionApp.Core.AdAuctionAppException;
+import AdAuctionApp.Core.AuctionTally;
+import AdAuctionApp.Core.DateRange;
+import AdAuctionApp.Core.DayOfWeek;
+import AdAuctionApp.Core.Money;
+import AdAuctionApp.Creative.MarketplaceSpotVideo;
+import AdAuctionApp.Creative.MarketplaceSpotVideoCrit;
+import AdAuctionApp.Creative.SpotVideo;
+import AdAuctionApp.Creative.SpotVideoCrit;
+import AdAuctionApp.Organization.Geography;
+import AdAuctionApp.Organization.Marketplace;
+import AdAuctionApp.Organization.NationalChannel;
+import AdAuctionApp.Organization.Organization;
+import AdAuctionApp.Organization.Site;
+import AdAuctionApp.Organization.Central.CentralOrgManager;
+import AdAuctionApp.Organization.Organization.OType;
+import AdAuctionApp.Server.CentralAdAuctionAppServer;
+import AdAuctionApp.Task.DistributedRequestCompleteCallbackIFace;
+import AdAuctionApp.Task.DistributedTaskCoordinator;
 
 /**
  * The AdBuy Master Grid aggregates accumulated information 
@@ -138,7 +138,7 @@ implements AuctionClient
     * @param buy CampaignBuy to model.  Must not be null.
     * @param isProposal If true, this Grid will run its auctions suitable for proposals.
     * @param isStandalone If true, this Grid will be used standalone, and 
-    *            No AdExchangeServer facilities will be used.
+    *            No AdAuctionAppServer facilities will be used.
     */
    public MasterGrid(SpotScheduleCache spotCache, CampaignBuy buy, boolean isProposal,
          boolean isStandalone)
@@ -553,7 +553,7 @@ implements AuctionClient
       myDestinationMarkets.clear();
       myChannelsByOrgMap.clear();
       
-      CentralOrgManager orgMgr = CentralAdExchangeServer.centralInstance().centralOrgMgr();
+      CentralOrgManager orgMgr = CentralAdAuctionAppServer.centralInstance().centralOrgMgr();
       TargetArea target_area = adBuy.getTargetArea();
       int adbuyOrgID = adBuy.getOrganizationId();
       Organization adbuyOrg = orgMgr.getOrganization(adbuyOrgID);
@@ -744,7 +744,7 @@ implements AuctionClient
          errorMsg("recalculateAttributeData()", 
                   "SQL error getting attributes of creatives.", e);
       }
-      catch (AdExchangeException e)
+      catch (AdAuctionAppException e)
       {
          errorMsg("recalculateAttributeData()", 
                   "getting attributes of creatives failed.", e);
@@ -783,10 +783,10 @@ implements AuctionClient
     * Get the placement attributes for a spot video
     * @param creativeId the creative id assigned to the spot video
     * @return the placement attributes assigned to the spot video, or an empty attribute if none
-    * @throws AdExchangeException
+    * @throws AdAuctionAppException
     */
    private PlacementAttribute getSpotVideoAttrs(int creativeId)
-      throws AdExchangeException
+      throws AdAuctionAppException
    {
       // get spot video with attributes loaded
       SpotVideoCrit svc = new SpotVideoCrit(false, false, false, 
@@ -815,10 +815,10 @@ implements AuctionClient
     * Get the marketplace spot videos associated with a creative
     * @param creativeId the creative Id
     * @return An array of marketplace spot videos; empty array if none
-    * @throws AdExchangeException
+    * @throws AdAuctionAppException
     */
    private MarketplaceSpotVideo[] getMarketplaceSpotVideos(int creativeId)
-      throws AdExchangeException
+      throws AdAuctionAppException
    {
       // Get marketplace spot videos (make sure it gets the attributes)
       MarketplaceSpotVideoCrit msvc = 
@@ -857,13 +857,13 @@ implements AuctionClient
     * Recalculates the size (and default values) of each array in the
     * PlacementAttribute indexed attribute. 
     * @throws SQLException
-    * @throws AdExchangeException
+    * @throws AdAuctionAppException
     */
    private void recalculateAttributeSizeData()
-      throws SQLException, AdExchangeException
+      throws SQLException, AdAuctionAppException
    {
-      CentralAdExchangeServer central_server = 
-         CentralAdExchangeServer.centralInstance();
+      CentralAdAuctionAppServer central_server = 
+         CentralAdAuctionAppServer.centralInstance();
       CentralCacheManager cacheMgr = central_server.centralCacheMgr();
       
       myBooleanAttributesCount = 
@@ -1003,7 +1003,7 @@ implements AuctionClient
    public List<Site> getTargetSites()
    {
       List<Site> targetSites = new LinkedList<Site>();
-      CentralOrgManager org_mgr = CentralAdExchangeServer.centralInstance().centralOrgMgr();
+      CentralOrgManager org_mgr = CentralAdAuctionAppServer.centralInstance().centralOrgMgr();
       
       Set<Organization> target_orgs = getTargetOrganizations();
       for (Organization org : target_orgs)
@@ -1254,10 +1254,10 @@ implements AuctionClient
       if (myOperationNotifier != null && !myIsStandaloneMode)
       {
          CentralAdvertisingTargetManager atmgr = 
-            CentralAdExchangeServer.centralInstance().centralAdvertisingTargetMgr();
+            CentralAdAuctionAppServer.centralInstance().centralAdvertisingTargetMgr();
          atmgr.unregisterOperationNotification(myOperationNotifier);
          CentralAuctionManager auctionMgr = 
-            CentralAdExchangeServer.centralInstance().centralAuctionMgr();
+            CentralAdAuctionAppServer.centralInstance().centralAuctionMgr();
          auctionMgr.unregisterOperationNotification(myOperationNotifier);
       }
    }
@@ -1276,7 +1276,7 @@ implements AuctionClient
          return;
       }
       CentralAdvertisingTargetManager tmgr = 
-         CentralAdExchangeServer.centralInstance().
+         CentralAdAuctionAppServer.centralInstance().
                                  centralAdvertisingTargetMgr();
 
       // If we are checking budget and/or placement, 
@@ -1309,7 +1309,7 @@ implements AuctionClient
                   auctionFlags.useBudget);
          }
       }
-      catch (AdExchangeException aee)
+      catch (AdAuctionAppException aee)
       {
          errorMsg("startEstimateReach()", 
                  "estimate reach for AdBuy #" + adBuyId() +
@@ -2601,7 +2601,7 @@ implements AuctionClient
     * setSegmentDebug must have been set to be true before
     * the auction started.
     * @return Text showing the SegmentSet actions for last auction.
-    * @see AdExchange.Auction.Auctioneer#setSegmentDebug
+    * @see AdAuctionApp.Auction.Auctioneer#setSegmentDebug
     */
    public String lastAuctionSegmentActions()
    {
@@ -2782,7 +2782,7 @@ implements AuctionClient
       // Now have a DTC run an auction for us.  
       // The toggles will be passed in by the task.
       CentralAdvertisingTargetManager tmgr = 
-         CentralAdExchangeServer.centralInstance().centralAdvertisingTargetMgr();
+         CentralAdAuctionAppServer.centralInstance().centralAdvertisingTargetMgr();
       
       try
       {
@@ -2822,12 +2822,12 @@ implements AuctionClient
                }
                catch (InterruptedException ex)
                {
-                  throw new AdExchangeException("Full auction task interrupted");
+                  throw new AdAuctionAppException("Full auction task interrupted");
                }
             }
          }
       }
-      catch (AdExchangeException aee)
+      catch (AdAuctionAppException aee)
       {
          errorMsg("runFullSynchronousAuction()", 
                "estimate reach for AdBuy #" + adBuyId() +
@@ -3023,7 +3023,7 @@ implements AuctionClient
    
    /**
     * @return true if in synchronous mode (no background tasks are used for DB access)
-    *         where no AdExchangeServer facilities are used in this mode.
+    *         where no AdAuctionAppServer facilities are used in this mode.
     */
    public boolean isStandaloneMode()
    {
@@ -3653,12 +3653,12 @@ implements AuctionClient
    private Map<OrgZoneChannelHour,Integer> myLastMultipliers = null;
    
    /*********************** CLASS MEMBERS ****************************/
-   private static CentralAdExchangeServer myCentralServer = 
-      CentralAdExchangeServer.centralInstance();
+   private static CentralAdAuctionAppServer myCentralServer = 
+      CentralAdAuctionAppServer.centralInstance();
    private static CentralAdvertisingTargetManager myAdTargetMgr = 
-      CentralAdExchangeServer.centralInstance().centralAdvertisingTargetMgr();
+      CentralAdAuctionAppServer.centralInstance().centralAdvertisingTargetMgr();
    private static CentralAuctionManager myAuctionMgr = 
-      CentralAdExchangeServer.centralInstance().centralAuctionMgr();
+      CentralAdAuctionAppServer.centralInstance().centralAuctionMgr();
    // Logging
    private static Logger theLogger = Logger.getLogger(MasterGrid.class);
    
