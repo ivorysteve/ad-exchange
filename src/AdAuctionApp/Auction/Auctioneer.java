@@ -51,10 +51,22 @@ import AdAuctionApp.Core.Money;
 import AdAuctionApp.Core.SystemAlert;
 
 /**
- * This class contains auction data for a grid and implements the auctioning
- * algorithm.
+ * This class implements the auctioning algorithm, a "second-price auction":
+ * 
+ *   "The generalized second-price auction (GSP) is a non-truthful auction mechanism for multiple items. 
+ *    Each bidder places a bid. The highest bidder gets the first slot, the second-highest, the second slot 
+ *    and so on, but the highest bidder pays the price bid by the second-highest bidder, the second-highest 
+ *    pays the price bid by the third-highest, and so on. First conceived as a natural extension of the 
+ *    Vickrey auction, it conserves some of the desirable properties of the Vickrey auction. It is used mainly 
+ *    in the context of keyword auctions, where sponsored search slots are sold on an auction basis."  - Wikipedia
+ *    
+ * The class also contains auction data for a grid, an on-demand simulated auction used to estimate
+ * auction behavior in future bids.
  * 
  * @author sgilbane
+ * 
+ * @see https://en.wikipedia.org/wiki/Vickrey_auction
+ * @see https://en.wikipedia.org/wiki/Generalized_second-price_auction
  */
 public class Auctioneer implements AuctionResults
 {
