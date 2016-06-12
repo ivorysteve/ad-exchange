@@ -108,6 +108,7 @@ public class Auctioneer implements AuctionResults
       myPassList = pool.getAuctionPassList();
       myPreassignedWinners.addAll(pool.getPreassignedWinners());
       mySegments = new ArrayList<SegmentSet>();
+      myCampaignBuyAuctionInfo = myClient.auctionInfo();
       if (myCampaignBuyAuctionInfo == null)
       {
          myCampaignBuyAuctionInfo = NO_CAMPAIGN_BUY;
