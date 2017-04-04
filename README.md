@@ -19,3 +19,12 @@ The ``MasterGrid`` class aggregates simulated auction information about availabl
 
 ## AdBuyGridUI
 The ``AdBuyGridUI`` class is a Swing-based desktop test app intended to allow viewing of ``MasterGrid`` data and behavior before the web interface had been finished.  It also tracks placement adjacency rules for each commercial break, preventing an ad from being broadcast with a direct competitor during the same commercial break.
+
+```mermaid
+sequenceDiagram
+A->> B: Query
+B->> C: Forward query
+Note right of C: Thinking...
+C->> B: Response
+B->> A: Forward response
+```
